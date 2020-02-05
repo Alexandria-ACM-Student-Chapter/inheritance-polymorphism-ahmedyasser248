@@ -1,0 +1,99 @@
+
+public interface movable {
+    public void moveup();
+    public void movedown();
+    public void moveleft();
+    public void moveright();
+
+}
+
+
+
+public class movablePoint implements movable {
+    private int x;
+    private int y;
+    private int xspeed;
+    private int yspeed;
+    public movablePoint(int x,int y,int xspeed,int yspeed){
+        this.x=x;
+        this.y=y;
+        this.xspeed=xspeed;
+        this.yspeed=yspeed;
+
+    }
+    public String toString(){
+        return "x="+x+" y="+y+"xspeed= "+xspeed+"yspeed="+yspeed;
+
+    }
+    @Override
+    public void moveup() {
+        y++;
+        yspeed++;
+    }
+
+    @Override
+    public void movedown() {
+        y--;
+        yspeed--;
+    }
+
+    @Override
+    public void moveright() {
+        x++;
+        xspeed++;
+    }
+
+    @Override
+    public void moveleft() {
+        x--;
+        xspeed--;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+public class movableCircle extends movablePoint {
+    private int radius;
+    private movablePoint center;
+    public movableCircle(int x,int y, int xspeed,int yspeed,int radius){
+        super(x, y, xspeed, yspeed);
+        this.radius=radius;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+"that was the cordinates of circle , the radius of circle = "+radius;
+    }
+
+    @Override
+    public void moveup() {
+        super.moveup();
+    }
+
+    @Override
+    public void movedown() {
+        super.movedown();
+    }
+
+    @Override
+    public void moveright() {
+        super.moveright();
+    }
+
+    @Override
+    public void moveleft() {
+
+    }
+    
+}
