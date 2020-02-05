@@ -1,0 +1,133 @@
+public class shape {
+    private String color="red";
+    private boolean filled=true ;
+    //constructor
+    public shape(){
+
+    }
+    //second contructor
+    public shape(String color,boolean filled){
+        this.color=color;
+        this.filled=filled;
+
+    }
+    public String getColor(){
+        return color;
+    }
+    public void setColor(String color){
+        this.color=color;
+
+    }
+    public boolean isFilled(){
+        return filled;
+    }
+
+    public void setFilled(boolean filled){
+        this.filled=filled;
+    }
+    public String toString(){
+        return "shape{"+" color = "+color+","+"filled = "+filled+"}";
+    }
+}
+public class rectangle extends shape {
+    private double width=1.0;
+    private double length=1.0;
+    public rectangle(){}
+    public rectangle(double width,double length){
+        this.length=length;
+        this.width=width;
+    }
+    public rectangle(double width,double length,String color,boolean filled){
+        super(color, filled);
+        this.length=length;
+        this.width=width;
+
+    }
+    public double getLength(){
+        return length;
+    }
+    public  double getWidth(){
+        return width;
+    }
+    public void setLength(double length){
+        this.length=length;
+    }
+    public void setWidth(double width){
+        this.width=width;
+    }
+    public double getArea(){
+        return length*width;
+    }
+    public double getPerimeter(){
+        return 2*(length+width);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+" "+"length= "+length+" width= "+width;
+    }
+}
+
+
+public class circle extends shape {
+    private double radius=1.0;
+    public circle(double radius){
+        this.radius=radius;
+    }
+    public circle(double radius,String color,boolean filled){
+        super(color,filled);
+        this.radius=radius;
+    }
+    public double getRadius(){
+        return radius;
+    }
+    public void setRadius(double radius){
+        this.radius=radius;
+    }
+    public double getArea(){
+        return Math.PI*Math.pow(radius,2);
+    }
+    public double getPerimeter(){
+        return 2*Math.PI*radius;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString()+" "+"radius= "+radius +" area="+this.getArea()+" perimeter= "+this.getPerimeter();
+    }
+}
+public class square extends rectangle {
+private double side;
+    public square(){}
+    public square(double side){
+    this.side=side; }
+    public square(double side , String color,boolean filled){
+        super(side,side);
+        super.setColor(color);//why super??
+        setFilled(filled);
+
+    }
+    public double getSide(){
+        return side;
+    }
+    public void setSide(){
+        this.side=side;
+    }
+
+    @Override
+    public void setWidth(double side) {//override as same signature but different implementation for method;
+        super.setWidth(side);
+    }
+
+    @Override
+    public void setLength(double side) {
+        super.setLength(side);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
+}
+
+
