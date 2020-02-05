@@ -1,0 +1,112 @@
+public class myComplex {
+    private double real = 0.0;
+    private double imag = 0.0;
+
+    public myComplex() {
+    }
+
+    public myComplex(double real, double imag) {
+        this.real = real;
+        this.imag = imag;
+    }
+
+    public double getReal() {
+        return real;
+    }
+
+    public double getImag() {
+        return imag;
+    }
+
+    public void setImag(double imag) {
+        this.imag = imag;
+    }
+
+    public void setValue(double real, double imag) {
+        this.real = real;
+        this.imag = imag;
+    }
+
+    public String toString() {
+        return this.real + "+" + this.imag + "i";
+    }
+
+    public boolean isReal() {
+        if (this.imag == 0) {
+            return true;
+        } else {
+return false;
+        }
+
+
+    }
+    public boolean isImage(){
+        if(this.imag!=0){
+            return true;
+        }else {
+      return false;  }
+
+    }
+
+    public boolean equals(double real,double imag){
+        if(imag==real){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public boolean equals(myComplex another){
+        if (this.imag==another.imag&&this.real==another.real){
+            return true;
+        }
+        else{ return false;}
+    }
+
+    public double magnitude(){
+        return Math.sqrt(Math.pow(real,2)+Math.pow(imag,2));
+    }
+    public double argument(){
+        return Math.atan(imag/real);
+    }
+    public myComplex add(myComplex right){
+        this.real+=right.real;
+        this.imag+=right.imag;
+        return this;
+    }
+    public myComplex addnew(myComplex right){
+        myComplex instance= new myComplex(right.real+this.real,right.imag+this.imag);
+ return instance ;
+    }
+
+    public myComplex subtract(myComplex right){
+        this.real-=right.real;
+        this.real-=right.real;
+        return this;
+    }
+    public myComplex subtractnew(myComplex right){
+        myComplex instance= new myComplex(right.real-this.real,right.imag-this.imag);
+        return instance ;
+    }
+    public myComplex multiply(myComplex right){
+        this.real=(this.real*this.real)+(this.imag*this.imag);
+        this.imag=this.real*this.imag*2;
+        return this;
+    }
+    public  myComplex divide(myComplex right) throws NumberFormatException{
+     if(right.imag==0&&right.real==0){
+
+         System.out.println("this process canot be done ");
+         throw new NumberFormatException();
+     }else{
+         this.imag=0;
+         this.real=((this.real*right.real+this.imag*right.real)-(this.real*right.imag-this.imag*right.imag*(-1) ))/(Math.pow(right.real,2)*Math.pow(right.imag,2));
+         return this;
+     }}
+public myComplex conjugate(){
+         this.imag=-imag;
+         return this;
+        }
+
+
+
